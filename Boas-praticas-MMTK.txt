@@ -122,6 +122,9 @@ Se quiser usar CSS 3 e dar mais estilo para a sua campanha, a Campaign Monitor c
 ---------------------------------------------------
 
 REFERÊNCIAS:
+https://www.w3schools.com/html/html_tables.asp
+https://www.w3schools.com/TagS/att_table_bgcolor.asp
+
 https://tableless.com.br/boas-praticas-para-e-mail-marketing/
 
 http://shipit.resultadosdigitais.com.br/blog/boas-praticas-para-o-html-de-email-marketing/
