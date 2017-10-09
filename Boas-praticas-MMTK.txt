@@ -1,0 +1,131 @@
+BOAS PRÁTICAS E-MAIL MARKETING
+
+Coloque sempre o atributo border="0" nas TAGs de imagem (<img>) para evitar que os programas de Email
+coloquem uma borda azul ao redor de imagens que possuam link.
+
+Prefira utilizar a propriedade width nas tags <td> ao invés de utilizar nas tags <table>, conforme exemplo
+abaixo:
+• <table cellspacing="0" cellpadding="10" border="0"> <tr> <td width="120"></td> <td width="480"></td> 
+
+ Tamanho e dimensão da peça:
+• Largura da peça: telas grandes = 500 a 600 pixels, mobile= 320 a 480 pixels
+• Tamanho do HTML sem imagens: 20 kbytes
+• Tamanho das imagens: máximo 200 kbytes.
+• Altura da peça: deixar a menor possível para evitar uso de barra de rolagem no preview pane.
+
+Utilize sempre o atributo valig="top".
+<tr>
+    <td valign="top" width="350"></td>
+    <td valign="top"></td>
+</tr>
+
+Utilize CSS inline (direto no elemento), porém não abuse de propriedades como position, float e etc…
+Alguns atributos de fontes funcionam em todos os clientes de e-mail, assim como: cores, line-height, font-size, entre outros.
+Não use - style="color: #fff";
+Use - style="color: #ffffff";
+
+Use sem medo o atributo border:
+<span style="border: 5px solid #000000">texto</span>
+Veja a tabela de atributos CSS suportados por diversos clientes de e-mail.
+http://www.campaignmonitor.com/css/
+
+IMAGENS
+Todas as imagens devem ter display:block, assim evita que o Gmail e o Hotmail acrescentem um espaçamento entre elas.
+Utilize url absoluta da imagem em seu html, além da sua altura e largura. <img src="http://www.exemplo.com.br/imagem.jpg" alt="A imagem" width="500" height="50" />
+Não use imagens com extensão PNG que possuem áreas transparentes, pois não são aceitas em versões do outlook anteriores a 2007, pois seu render engine é o mesmo que o do IE6, que não suporta PNG transparente. As áreas que deveriam ser transparentes são exibidas em cinza.
+O atributo ALT oferece um texto alternativo quando alguma imagem não carrega ou não pode ser visualizada. Esse atributo é muito usado para melhorar a acessibilidade de uma página na web e principalmente de um email marketing, já que muitos clientes de email bloqueiam as imagens enviadas por remetentes desconhecidos do destinatário. Nesta situação, a função do atributo é facilitar a "pré-leitura" para o usuário. O atributo alt pode ser formatado para a leitura ficar mais organizada.
+Não que seja proibido, mas evite user gifs animados.
+
+NÃO USE OS ATRIBUTOS MAX-WIDTH OU WIDTH NO CSS
+<!--BOM-->
+  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr>
+      <td>
+        <table cellspacing="0" cellpadding="0" width="600" border="0">
+          <tr>
+            <td width="300">Célula 1</td>
+            <td width="300">Célula 2</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+NÃO USE OS ATRIBUTOS PADDING E MARGIN NO CSS DE QUALQUER ELEMENTO.
+O Outlook não dá suporte ao uso de margens internas e externas. Para isso, tente usar os atributos cellpadding e cellspacing.
+
+  <!--RUIM-->
+  <table>
+    <tr>
+      <td style="margin: 5px;">Deu zica.</td>
+      <td style="margin: 5px;">Deu zica.</td>
+    </tr>
+  </table>
+
+  <!--BOM-->
+  <table cellspacing="10">
+    <tr>
+      <td>Deu boa.</td>
+      <td>Deu boa.</td>
+    </tr>
+  </table>
+
+NÃO USE OS ATRIBUTOS BACKGROUND-COLOR E BACKGROUND-IMAGE NO CSS.
+Usar o bgcolor dá suporte a todos os clientes de email. Já as imagens devem estar dentro das células da tabela. Por exemplo:
+<!--RUIM-->
+<tr bgcolor="#FFF"></tr>
+<tr style="background-color: #FFFFFF;"></tr>
+<!--RUIM-->
+<tr style="background-image: url('http://dreamatico.com/data_images/kitten/kitten-2.jpg');"></tr>
+<!--BOM-->
+<tr bgcolor="#FFFFFF"></tr>
+<!--BOM-->
+<tr>
+    <td>
+        <img src="http://dreamatico.com/data_images/kitten/kitten-2.jpg" border="0">
+    </td>
+</tr>
+
+O ELEMENTO <TABLE> DEVE ESPECIFICAR VALORES, INCLUINDO OS NULOS.
+Alguns clientes de email atribuem valores diferentes de 0 quando não há especificação. Isso pode trazer espaçamentos indesejados. Por exemplo:
+  <!--RUIM-->
+  <table>
+  <!--BOM-->
+  <table cellspacing="0" cellpadding="0" border="0">
+
+CORES DE FONTE DEVEM ESTAR EM HEXADECIMAL DE 6 DÍGITOS.
+A maior parte dos clientes de email não dá suporte a hexadecimal com três dígitos. Por exemplo:
+  <!--RUIM-->
+  <tr>
+    <td style="color: #FFF;"></td>
+  </tr>
+  <!--BOM-->
+  <tr>
+    <td style="color: #FFFFFF;"></td>
+  </tr>
+
+TODAS AS IMAGENS DEVEM TER O ATRIBUTO BORDER="0".
+Alguns clientes de email colocam uma borda azul ao redor das imagens. Por exemplo:
+  <!--RUIM-->
+  <img src="https://d335luupugsy2.cloudfront.net/images/email_mkt/iphone.jpg">
+  <!--BOM-->
+  <img src="https://d335luupugsy2.cloudfront.net/images/email_mkt/iphone.jpg" border="0">
+
+DÊ PREFERÊNCIA A IMAGENS EM JPG OU GIF.
+Versões antigas do Outlook não suportam imagens em PNG. Use JPG para imagens maiores, como fotos e ilustrações, e GIF para logos.
+Todas as imagens devem estar comprimidas.
+O usuário pode tentar abrir o email numa rede 3G, então faz todo o sentido comprimir as imagens. Você pode usar o Tiny.png para isso!
+
+MAIS DICAS!
+Se quiser usar CSS 3 e dar mais estilo para a sua campanha, a Campaign Monitor criou uma lista com o que é aceito em cada cliente de email! O The Ultimate Guide to CSS está no ar desde 2006 e é atualizado constantemente. Além disso, você também pode experimentar o Litmus para testar o HTML de seu modelo de email. É uma ótima pedida se a sua empresa costuma disparar campanhas personalizadas com frequência!
+
+---------------------------------------------------
+
+REFERÊNCIAS:
+https://tableless.com.br/boas-praticas-para-e-mail-marketing/
+
+http://shipit.resultadosdigitais.com.br/blog/boas-praticas-para-o-html-de-email-marketing/
+
+https://wiki.locaweb.com.br/pt-br/Boas_pr%C3%A1ticas_de_HTML_para_Email
+
+https://www.emailmanager.com/br/blog/1/2226/50-boas-praticas-de-email-marketing-para-melhores-resultados.html
